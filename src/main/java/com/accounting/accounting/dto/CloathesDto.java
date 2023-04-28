@@ -1,6 +1,8 @@
 package com.accounting.accounting.dto;
 
 public class CloathesDto {
+
+    private long id;
     private String city;
     private String address;
     private int size;
@@ -10,6 +12,14 @@ public class CloathesDto {
 
     public String getCity() {
         return city;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public void setCity(String city) {

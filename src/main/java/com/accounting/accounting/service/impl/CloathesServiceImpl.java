@@ -3,6 +3,7 @@ import com.accounting.accounting.entity.Cloathes;
 import com.accounting.accounting.repository.CloathesRepository;
 import com.accounting.accounting.service.CloathesService;
 import org.springframework.stereotype.Service;
+import com.accounting.accounting.entity.Color;
 
 @Service
 public class CloathesServiceImpl implements CloathesService{
@@ -14,16 +15,16 @@ public class CloathesServiceImpl implements CloathesService{
     }
 
     @Override
-    public Cloathes createCloathes(String city, String address, int size, String color, int count, double cost) {
+    public Cloathes createCloathes(String city, String address, int size, Color color, int count, double cost) {
         Cloathes cloathes = mapCloathes(city, address, size, color, count, cost);
 
         return cloathesRepository.save(cloathes);
     }
 
     @Override
-    public Cloathes updateCloathes(long id, String city, String address, int size, String color, int count, double cost) {
+    public Cloathes updateCloathes(long id, String city, String address, int size, Color color, int count, double cost) {
         Cloathes cloathes = mapCloathes(city, address, size, color, count, cost);
-        cloathes.setId(id);
+        cloathes.setPartNumber(id);
         return cloathesRepository.save(cloathes);
     }
 
@@ -33,11 +34,11 @@ public class CloathesServiceImpl implements CloathesService{
     }
 
     @Override
-    public void deleteTaskById(Long id) {
+    public void deleteTaskById(long id) {
         cloathesRepository.deleteById(id);
     }
 
-    private Cloathes mapCloathes (String city, String address, int size, String color, int count, double cost) {
+    private Cloathes mapCloathes (String city, String address, int size, Color color, int count, double cost) {
         Cloathes cloathes = new Cloathes();
         cloathes.setCity(city);
         cloathes.setAddress(address);

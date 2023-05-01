@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("acc/availability")
+@RequestMapping("/acc")
 public class CloathesController {
 
     private final CloathesService cloathesService;
@@ -18,6 +18,7 @@ public class CloathesController {
     public CloathesController(CloathesService cloathesService) {
         this.cloathesService = cloathesService;
     }
+
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Cloathes> createCloathes(@RequestBody CloathesDto cloathesDto) {
     Cloathes cloathes = cloathesService.createCloathes(cloathesDto.getCity(), cloathesDto.getAddress(),
@@ -27,17 +28,17 @@ public class CloathesController {
 
     @RequestMapping(method = RequestMethod.PUT)
     public ResponseEntity<Cloathes> updateCloathes(@RequestBody CloathesDto cloathesDto) {
-        Cloathes cloathes = cloathesService.updateCloathes(cloathesDto.getId(),cloathesDto.getCity(), cloathesDto.getAddress(),
+        Cloathes cloathes = cloathesService.updateCloathes(cloathesDto.getPartNumber(),cloathesDto.getCity(), cloathesDto.getAddress(),
                 cloathesDto.getSize(), cloathesDto.getColor(), cloathesDto.getCount(), cloathesDto.getCost());
         return ResponseEntity.ok(cloathes);
     }
-    @RequestMapping(value = "/{id}",method = RequestMethod.GET)
-    public ResponseEntity<Cloathes> getCloathesById(@PathVariable("id") Long id) {
-        Cloathes cloathes = cloathesService.getCloathesById(id);
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<Cloathes> getCloathesById(@RequestBody CloathesDto cloathesDto) {
+        Cloathes cloathes = cloathesService.getCloathesById(cloathesDto.getPartNumber());
         return ResponseEntity.ok(cloathes);
     }
-    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
-    public void deleteCloathesByID(@PathVariable("id") Long id) {
-        cloathesService.deleteTaskById(id);
+    @RequestMapping(method = RequestMethod.DELETE)
+    public void deleteCloathesByID(@RequestBody CloathesDto cloathesDto) {
+        cloathesService.deleteTaskById(cloathesDto.getPartNumber());
     }
 }

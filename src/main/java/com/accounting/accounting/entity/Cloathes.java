@@ -4,25 +4,26 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import com.accounting.accounting.entity.Color;
 
 @Entity
 public class Cloathes {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
-    private long id;
+    private long partNumber;
     private String city;
     private String address;
     private int size;
-    private String color;
+    private Color color;
     private int count;
     private double cost;
 
-    public long getId() {
-        return id;
+    public long getPartNumber() {
+        return partNumber;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setPartNumber(long partNumber) {
+        this.partNumber = partNumber;
     }
 
     public String getCity() {
@@ -49,11 +50,11 @@ public class Cloathes {
         this.size = size;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
@@ -74,6 +75,6 @@ public class Cloathes {
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.partNumber = id;
     }
 }

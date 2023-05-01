@@ -1,12 +1,12 @@
 package com.accounting.accounting.dto;
-
+import com.accounting.accounting.entity.Color;
 public class CloathesDto {
 
-    private long id;
+    private long partNumber;
     private String city;
     private String address;
     private int size;
-    private String color;
+    private Color color;
     private int count;
     private double cost;
 
@@ -14,12 +14,12 @@ public class CloathesDto {
         return city;
     }
 
-    public long getId() {
-        return id;
+    public long getPartNumber() {
+        return partNumber;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setPartNumber(long partNumber) {
+        this.partNumber = partNumber;
     }
 
     public void setCity(String city) {
@@ -42,11 +42,11 @@ public class CloathesDto {
         this.size = size;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 

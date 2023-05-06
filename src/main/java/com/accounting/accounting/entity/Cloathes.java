@@ -10,7 +10,7 @@ import com.accounting.accounting.entity.Color;
 public class Cloathes {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
-    private long partNumber;
+    private long id;
     private String city;
     private String address;
     private int size;
@@ -18,12 +18,12 @@ public class Cloathes {
     private int count;
     private double cost;
 
-    public long getPartNumber() {
-        return partNumber;
+    public long getId() {
+        return id;
     }
 
     public void setPartNumber(long partNumber) {
-        this.partNumber = partNumber;
+        this.id = partNumber;
     }
 
     public String getCity() {
@@ -75,6 +75,6 @@ public class Cloathes {
     }
 
     public void setId(Long id) {
-        this.partNumber = id;
+        this.id = id;
     }
 }

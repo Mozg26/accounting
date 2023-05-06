@@ -1,6 +1,6 @@
 package com.accounting.accounting.dto;
 import com.accounting.accounting.entity.Color;
-public class CloathesDto {
+public class ProductAvailabilityDTO {
 
     private long partNumber;
     private String city;
@@ -8,7 +8,6 @@ public class CloathesDto {
     private int size;
     private Color color;
     private int count;
-    private double cost;
 
     public String getCity() {
         return city;
@@ -56,13 +55,5 @@ public class CloathesDto {
 
     public void setCount(int count) {
         this.count = count;
-    }
-
-    public double getCost() {
-        return cost;
-    }
-
-    public void setCost(double cost) {
-        this.cost = cost;
     }
 }

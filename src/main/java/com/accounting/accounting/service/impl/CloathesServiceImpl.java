@@ -1,4 +1,5 @@
 package com.accounting.accounting.service.impl;
+import com.accounting.accounting.dto.ProductAvailabilityDTO;
 import com.accounting.accounting.entity.Cloathes;
 import com.accounting.accounting.repository.CloathesRepository;
 import com.accounting.accounting.service.CloathesService;
@@ -14,7 +15,7 @@ public class CloathesServiceImpl implements CloathesService{
         this.cloathesRepository = cloathesRepository;
     }
 
-    @Override
+    /*@Override
     public Cloathes createCloathes(String city, String address, int size, Color color, int count, double cost) {
         Cloathes cloathes = mapCloathes(city, address, size, color, count, cost);
 
@@ -26,17 +27,17 @@ public class CloathesServiceImpl implements CloathesService{
         Cloathes cloathes = mapCloathes(city, address, size, color, count, cost);
         cloathes.setPartNumber(id);
         return cloathesRepository.save(cloathes);
-    }
+    }*/
 
     @Override
     public Cloathes getCloathesById(long id) {
         return cloathesRepository.getById(id);
     }
 
-    @Override
+    /*@Override
     public void deleteTaskById(long id) {
         cloathesRepository.deleteById(id);
-    }
+    }*/
 
     private Cloathes mapCloathes (String city, String address, int size, Color color, int count, double cost) {
         Cloathes cloathes = new Cloathes();
